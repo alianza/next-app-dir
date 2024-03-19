@@ -1,7 +1,13 @@
 import Image from "next/image";
 import Link from "next/link"
+import { getServerSession } from "next-auth"
+import { authOptions } from "@/app/api/auth/[...nextauth]/route"
 
-export default function Home() {
+export default async function Home() {
+  const session = await getServerSession(authOptions)
+
+  console.log(`session`, session)
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div
@@ -15,12 +21,13 @@ export default function Home() {
           priority
         />
       </div>
+      server session:
+      {JSON.stringify(session, null, 2)}
 
       <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <Link href="/subroute" >
+        <Link href="/subroute/">
           Go to subroute
         </Link>
-
       </div>
     </main>
   )
