@@ -3,5 +3,11 @@
 @tailwind utilities;
 
 body {
-  @apply text-neutral-900 dark:text-neutral-50 bg-gradient-to-b from-neutral-300 to-neutral-50 dark:from-neutral-950 dark:to-black;
+  @apply min-h-dvh min-h-screen bg-gradient-to-b from-neutral-300 to-neutral-50 text-neutral-900;
+  @apply dark:from-neutral-950 dark:to-black dark:text-neutral-50;
+}
+
+a {
+  @apply underline decoration-transparent transition-colors;
+  @apply hover:decoration-inherit;
 }
